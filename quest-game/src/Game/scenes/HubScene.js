@@ -6,27 +6,39 @@ export default class HubScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.text(300, 50, "Choose Room", {
+    this.add.text(100, 50, "Choose Room", {
       fontSize: "32px",
       color: "#ffffff",
     });
 
-    const math = this.add.text(350, 200, "Math Room", { fontSize: "24px" })
-      .setInteractive()
-      .on("pointerdown", () => {
-        this.scene.start("MathScene");
-      });
+    // Math Room
+    this.add.text(100, 150, "Math Room", {
+      fontSize: "28px",
+      color: "#00ff00",
+      backgroundColor: "#222222",
+      padding: { x: 10, y: 5 },
+    })
+    .setInteractive()
+    .on("pointerdown", () => this.scene.start("MathScene"));
 
-    const physics = this.add.text(350, 300, "Physics Room", { fontSize: "24px" })
-      .setInteractive()
-      .on("pointerdown", () => {
-        console.log("Go to Physics");
-      });
+    // Physics Room
+    this.add.text(100, 250, "Physics Room", {
+      fontSize: "28px",
+      color: "#00ffff",
+      backgroundColor: "#222222",
+      padding: { x: 10, y: 5 },
+    })
+    .setInteractive()
+    .on("pointerdown", () => this.scene.start("PhysicsScene"));
 
-    const chemistry = this.add.text(350, 400, "Chemistry Room", { fontSize: "24px" })
-      .setInteractive()
-      .on("pointerdown", () => {
-        console.log("Go to Chemistry");
-      });
+    // Win Room (тест)
+    this.add.text(100, 350, "Win Screen", {
+      fontSize: "28px",
+      color: "#ff00ff",
+      backgroundColor: "#222222",
+      padding: { x: 10, y: 5 },
+    })
+    .setInteractive()
+    .on("pointerdown", () => this.scene.start("WinScene"));
   }
 }
